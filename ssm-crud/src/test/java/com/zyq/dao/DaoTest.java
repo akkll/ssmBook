@@ -2,8 +2,6 @@ package com.zyq.dao;
 
 import com.zyq.pojo.Books;
 import com.zyq.service.impl.BookServiceImpl;
-import com.zyq.util.MybatisUtils;
-import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

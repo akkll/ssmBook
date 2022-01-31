@@ -3,25 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <title>书籍展示页面</title>
+<!--    <link rel="stylesheet" th:href="@{static/css/bootstrap.min.css}">-->
+    <script type="text/javascript" th:src="@{/static/js/jquery-1.12.4.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}"/>
+    <script type="text/javascript" th:src="@{/static/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<h1>书籍展示</h1>
-<table border="1" cellpadding="0" cellspacing="0" style="text-align: center;" id="dataTable">
-    <tr>
-        <th colspan="5">Employee Info</th>
-    </tr>
-    <tr>
-        <th>id</th>
-        <th>lastName</th>
-        <th>email</th>
-        <th>gender</th>
-    </tr>
-    <tr th:each="book : ${list}">
-        <td th:text="${book.bookID}"></td>
-        <td th:text="${book.bookName}"></td>
-        <td th:text="${book.bookCounts}"></td>
-        <td th:text="${book.detail}"></td>
-    </tr>
-</table>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>书籍列表————显示所有书籍</small>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 column">
+                <a class="btn btn-primary" th:href="@{/book/addBook}">新增书籍</a>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 column">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>书籍编号</th>
+                        <th>书籍名称</th>
+                        <th>书籍数量</th>
+                        <th>书籍详情</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tr th:each="book : ${list}">
+                    <td th:text="${book.bookID}"></td>
+                    <td th:text="${book.bookName}"></td>
+                    <td th:text="${book.bookCounts}"></td>
+                    <td th:text="${book.detail}"></td>
+                    <td>
+                        <a th:href="@{'/book/toUpdate/'+${book.bookID}}">修改</a>&nbsp;|&nbsp;
+                        <a th:href="@{/book/deleteBook}">删除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<h1>书籍展示</h1>-->
+<!--<table border="1" cellpadding="0" cellspacing="0" style="text-align: center;" id="dataTable">-->
+<!--    <tr>-->
+<!--        <th colspan="5">Book Info</th>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <th>书籍id</th>-->
+<!--        <th>书名</th>-->
+<!--        <th>书籍定价</th>-->
+<!--        <th>详细信息</th>-->
+<!--    </tr>-->
+<!--    <tr th:each="book : ${list}">-->
+<!--        <td th:text="${book.bookID}"></td>-->
+<!--        <td th:text="${book.bookName}"></td>-->
+<!--        <td th:text="${book.bookCounts}"></td>-->
+<!--        <td th:text="${book.detail}"></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<br>-->
+<!--<a class="btn btn-default" th:href="@{/book/addBook}">添加图书</a>-->
+<!--<a class="btn btn-default" href="#" role="button">Link</a>-->
 </body>
 </html>

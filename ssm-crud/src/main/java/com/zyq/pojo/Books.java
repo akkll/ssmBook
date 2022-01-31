@@ -12,6 +12,12 @@ public class Books {
     private String bookCounts;
     private String detail;
 
+    public Books(String bookName, String bookCounts, String detail) {
+        this.bookName = bookName;
+        this.bookCounts = bookCounts;
+        this.detail = detail;
+    }
+
     @Override
     public String toString() {
         return "Books{" +
