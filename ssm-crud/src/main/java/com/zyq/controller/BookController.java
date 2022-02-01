@@ -52,5 +52,11 @@ public class BookController {
         model.addAttribute("book", books);
         return "updateBook";
     }
+    @RequestMapping(value = "/book/{id}", method = RequestMethod.DELETE)
+    public String deleteBook(@PathVariable Integer id){
+        System.out.println(id);
+        bookService.deleteBookById(id);
+        return "redirect:/book/book";
+    }
 
 }
